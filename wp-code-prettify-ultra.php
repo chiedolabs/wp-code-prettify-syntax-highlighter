@@ -27,10 +27,14 @@ function code( $atts , $content = null ) {
   } else {
     $lang = '';
   }
-
+  if($atts['lang'] === "html") {
+    $content = htmlentities(moonWalk($content));
+  } else {
+    $content = moonWalk($content);
+  }
   ob_start();
 ?>
-  <pre class="prettyprint <?php echo $lang?>"><?php echo htmlentities(moonWalk($content)) ?></pre>
+  <pre class="prettyprint <?php echo $lang?>"><?php echo $content ?></pre>
 <?php
   $result = ob_get_contents ();
   ob_end_clean();
