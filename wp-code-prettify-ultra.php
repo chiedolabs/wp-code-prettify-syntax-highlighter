@@ -45,7 +45,7 @@ chiedolabs_shortcode_wpautop_control(array('code'));
 
 function pre_moonwalk($content) {
   return preg_replace_callback(
-    '#(<pre.*?>)(.*?)(</pre>)#imsu',
+    '#(<pre.*?prettyprint.*?>)(.*?)(</pre>)#imsu',
     create_function(
       '$i',
       'return $i[1].moonWalk($i[2]).$i[3];'
