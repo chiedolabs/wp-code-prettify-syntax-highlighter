@@ -14,8 +14,8 @@ Usage for HTML:
 Usage for others:
 ```
 <pre class="prettifier lang-*">
-<div>
-  <div>Hello World</div>
-</div>
+  <div>
+    <div>Hello World</div>
+  </div>
 </pre>
 ```
