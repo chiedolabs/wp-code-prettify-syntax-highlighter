@@ -9,11 +9,18 @@ License: GPLv2 or later
 defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
 include "moonwalk.php";
 
+/*
+ * Load the script
+ */
 add_action( 'wp_enqueue_scripts', 'wp_code_prettify_ultra_scripts' );
 function wp_code_prettify_ultra_scripts() {
   wp_enqueue_script('wp-code-prettify-ultra', 'https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js', null, "0.1", false);
 }
 
+/*
+ * The filter to handle processing of the prettyprint pre tags
+ */
+add_filter( 'the_content', 'wp_code_prettify_ultra_clean_the_body');
 function wp_code_prettify_ultra_clean_the_body($content) {
   return preg_replace_callback(
     '#(<pre.*?prettyprint.*?>)(.*?)(</pre>)#imsu',
@@ -24,6 +31,4 @@ function wp_code_prettify_ultra_clean_the_body($content) {
     $content
   );
 }
-
-add_filter( 'the_content', 'wp_code_prettify_ultra_clean_the_body');
 ?>
