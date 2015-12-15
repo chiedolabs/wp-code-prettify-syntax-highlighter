@@ -2,20 +2,28 @@
 
 Works with all google code prettify languages.
 
-Usage for HTML:
+Usage:
+
 ```
-[code lang="html"]
-  <div>
-    <div>Hello World</div>
-  </div>
-[/html]
+<div>
+  <pre class="prettifier lang-*">
+    <div>
+      <div>Hello World</div>
+    </div>
+  </pre>
+</div>
 ```
 
-Usage for others:
+Better than existing WordPress options because you can indent the code in your pre tags.
+
+In other plugins, you must do this:
+
 ```
+<div>
 <pre class="prettifier lang-*">
-  <div>
-    <div>Hello World</div>
-  </div>
+<div>
+  <div>Hello World</div>
+</div>
 </pre>
+</div>
 ```
