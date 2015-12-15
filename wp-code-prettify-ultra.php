@@ -54,9 +54,9 @@ function wp_code_prettify_ultra_display_settings() {
   </pre>
   <div class="wrap">
     <form action="options.php" method="post" name="options">
-      <h2>Select Your Settings</h2>
+      <h2>Choose a theme</h2>
       <?php echo wp_nonce_field('update-options') ?>
-      <label>Display Themes</label>
+      <label>Themes</label>
       <select name="wp_code_prettify_ultra_theme">
         <?php echo $options_dom ?>
       </select>
