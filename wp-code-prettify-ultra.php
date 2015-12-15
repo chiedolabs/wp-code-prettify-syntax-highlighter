@@ -25,6 +25,5 @@ function wp_code_prettify_ultra_clean_the_body($content) {
   );
 }
 
-
 add_filter( 'the_content', 'wp_code_prettify_ultra_clean_the_body');
 ?>
