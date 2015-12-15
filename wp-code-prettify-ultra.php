@@ -41,17 +41,25 @@ function wp_code_prettify_ultra_settings() {
 }
 
 function wp_code_prettify_ultra_display_settings() {
-    $wp_code_prettify_ultra_theme= (get_option('wp_code_prettify_ultra_theme') == 'default') ? 'selected' : '';
+  $options = array("Default","Desert");
+  $options_dom = "";
+  foreach($options as $option) {
+    if(get_option('wp_code_prettify_ultra_theme') == $option) { 
+      $options_dom = $options_dom . "<option value='$option' selected>$option</option>";
+    } else {
+      $options_dom = $options_dom . "<option value='$option'>$option</option>";
+    }
+  }
   ?>
   </pre>
   <div class="wrap">
     <form action="options.php" method="post" name="options">
       <h2>Select Your Settings</h2>
       <?php echo wp_nonce_field('update-options') ?>
+      <?php echo get_option('wp_code_prettify_ultra_theme') ?>
       <label>Display Themes</label>
       <select name="wp_code_prettify_ultra_theme">
-        <option value="default">Default</option>
-        <option value="desert">Desert</option>
+        <?php echo $options_dom ?>
       </select>
       <input type="submit" name="Submit" value="Update" />
       <input type="hidden" name="action" value="update" />
