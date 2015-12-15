@@ -41,7 +41,7 @@ function wp_code_prettify_ultra_settings() {
 }
 
 function wp_code_prettify_ultra_display_settings() {
-  $options = array("Default","Desert", "Sunburst","Sons of Obsidian","Doxy", "Monokai");
+  $options = array("Default","Desert", "Sunburst","Doxy", "Monokai");
   $options_dom = "";
   foreach($options as $option) {
     if(get_option('wp_code_prettify_ultra_theme') == $option) { 
@@ -79,9 +79,6 @@ switch(get_option('wp_code_prettify_ultra_theme')) {
   case 'Sunburst':
     wp_enqueue_style("wp-code-prettify-ultra-theme", plugin_dir_url( __FILE__ )."/styles/sunburst.css");
     break;
-  case 'Sons of Obsidian':
-    wp_enqueue_style("wp-code-prettify-ultra-theme", plugin_dir_url( __FILE__ )."/styles/sons-of-obsidian.css");
-    break;
   case 'Doxy':
     wp_enqueue_style("wp-code-prettify-ultra-theme", plugin_dir_url( __FILE__ )."/styles/doxy.css");
     break;
@@ -91,5 +88,6 @@ switch(get_option('wp_code_prettify_ultra_theme')) {
   default:
     wp_enqueue_style("wp-code-prettify-ultra-theme", plugin_dir_url( __FILE__ )."/styles/default.css");
 }
+  wp_enqueue_style("wp-code-prettify-ultra-theme-base", plugin_dir_url( __FILE__ )."/styles/base.css");
 
 ?>

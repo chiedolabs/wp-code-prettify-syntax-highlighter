@@ -1,0 +1,12 @@
+@import "partials/variables", "partials/mixins", "partials/normalize";
+
+/*Wrapped in body tag to ensure it takes precedence over other prettify styles*/
+body {
+  pre.prettyprint {
+    box-sizing: border-box;
+    @include bdr-rad(0);
+    padding: 10px;
+    border: 0;
+    @include box-shad(none);
+  }
+}
