@@ -43,17 +43,17 @@ function code( $atts , $content = null ) {
 
 chiedolabs_shortcode_wpautop_control(array('code'));
 
-function pre_moonwalk($content) {
+function wp_code_prettify_ultra_clean_the_body($content) {
   return preg_replace_callback(
     '#(<pre.*?prettyprint.*?>)(.*?)(</pre>)#imsu',
     create_function(
       '$i',
-      'return $i[1].moonWalk($i[2]).$i[3];'
+      'return $i[1].htmlentities(moonWalk($i[2])).$i[3];'
     ),
     $content
   );
 }
 
 
-add_filter( 'the_content', 'pre_moonwalk');
+add_filter( 'the_content', 'wp_code_prettify_ultra_clean_the_body');
 ?>
