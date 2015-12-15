@@ -41,7 +41,7 @@ function wp_code_prettify_ultra_settings() {
 }
 
 function wp_code_prettify_ultra_display_settings() {
-  $options = array("Default","Desert");
+  $options = array("Default","Desert", "Sunburst", "Monokai");
   $options_dom = "";
   foreach($options as $option) {
     if(get_option('wp_code_prettify_ultra_theme') == $option) { 
@@ -56,7 +56,6 @@ function wp_code_prettify_ultra_display_settings() {
     <form action="options.php" method="post" name="options">
       <h2>Select Your Settings</h2>
       <?php echo wp_nonce_field('update-options') ?>
-      <?php echo get_option('wp_code_prettify_ultra_theme') ?>
       <label>Display Themes</label>
       <select name="wp_code_prettify_ultra_theme">
         <?php echo $options_dom ?>
@@ -69,4 +68,22 @@ function wp_code_prettify_ultra_display_settings() {
   <pre>
   <?php
 }
+
+/*
+ *Load styles based on settings pages value
+ */
+switch(get_option('wp_code_prettify_ultra_theme')) {
+  case 'Desert':
+    wp_enqueue_style("wp-code-prettify-ultra-theme", plugin_dir_url( __FILE__ )."/styles/desert.css");
+    break;
+  case 'Sunburst':
+    wp_enqueue_style("wp-code-prettify-ultra-theme", plugin_dir_url( __FILE__ )."/styles/sunburst.css");
+    break;
+  case 'Monokai':
+    wp_enqueue_style("wp-code-prettify-ultra-theme", plugin_dir_url( __FILE__ )."/styles/monokai.css");
+    break;
+  default:
+    wp_enqueue_style("wp-code-prettify-ultra-theme", plugin_dir_url( __FILE__ )."/styles/default.css");
+}
+
 ?>
