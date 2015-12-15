@@ -31,4 +31,34 @@ function wp_code_prettify_ultra_clean_the_body($content) {
     $content
   );
 }
+
+/*
+ * Configure the settings page
+ */
+add_action('admin_menu', 'wp_code_prettify_ultra_settings');
+function wp_code_prettify_ultra_settings() {
+  add_menu_page('Code Prettify', 'Code Prettify', 'administrator', 'wp_code_prettify_ultra_settings', 'wp_code_prettify_ultra_display_settings');
+}
+
+function wp_code_prettify_ultra_display_settings() {
+    $wp_code_prettify_ultra_theme= (get_option('wp_code_prettify_ultra_theme') == 'default') ? 'selected' : '';
+  ?>
+  </pre>
+  <div class="wrap">
+    <form action="options.php" method="post" name="options">
+      <h2>Select Your Settings</h2>
+      <?php echo wp_nonce_field('update-options') ?>
+      <label>Display Themes</label>
+      <select name="wp_code_prettify_ultra_theme">
+        <option value="default">Default</option>
+        <option value="desert">Desert</option>
+      </select>
+      <input type="submit" name="Submit" value="Update" />
+      <input type="hidden" name="action" value="update" />
+      <input type="hidden" name="page_options" value="wp_code_prettify_ultra_theme" />
+    </form>
+  </div>
+  <pre>
+  <?php
+}
 ?>
