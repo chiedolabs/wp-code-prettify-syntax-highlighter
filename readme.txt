@@ -1,17 +1,18 @@
 
-=== WP Code Prettify Ultra ===
+=== Code Pretiffy Syntax Highlighter ===
 Contributors: chiedolabs, chiedojohn
+Tags: code prettify, syntax, syntax highlighter
 Requires at least: 4.3.1
 Tested up to: 4.3.1
 Stable tag: 1.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-The best Google Prettify WordPress plugin.
+The best Google Code Prettify WordPress plugin.
 
 == Description ==
 
-The best Google Prettify WordPress plugin. Works with all google code prettify languages. Better than existing WordPress options because you can indent the code in your pre tags.
+The best Google Code Prettify WordPress plugin. Works with all google code prettify languages. Better than existing WordPress options because you can indent the code in your pre tags and its the fastest to load.
 
 == Installation ==
 
