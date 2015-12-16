@@ -86,31 +86,17 @@ function wp_code_prettify_syntax_highlighter_display_settings() {
 }
 
 /*
- *Load styles based on settings pages value
+ * Load styles based on settings pages value
+ * Get the selcted stylesheet's name by replacing spaces with dashes and making it lowercase.
  */
-switch(get_option('wp_code_prettify_syntax_highlighter_theme')) {
-  case 'Desert':
-    wp_enqueue_style("wp-code-prettify-syntax-highlighter-theme", plugin_dir_url( __FILE__ )."/styles/desert.css");
-    break;
-  case 'Sunburst':
-    wp_enqueue_style("wp-code-prettify-syntax-highlighter-theme", plugin_dir_url( __FILE__ )."/styles/sunburst.css");
-    break;
-  case 'Doxy':
-    wp_enqueue_style("wp-code-prettify-syntax-highlighter-theme", plugin_dir_url( __FILE__ )."/styles/doxy.css");
-    break;
-  case 'Monokai':
-    wp_enqueue_style("wp-code-prettify-syntax-highlighter-theme", plugin_dir_url( __FILE__ )."/styles/monokai.css");
-    break;
-  default:
-    wp_enqueue_style("wp-code-prettify-syntax-highlighter-theme", plugin_dir_url( __FILE__ )."/styles/default.css");
-}
+$selected_style_sheet = str_replace(" ","-",strtolower(get_option('wp_code_prettify_syntax_highlighter_theme')));
+// Load the selected theme
+wp_enqueue_style("wp-code-prettify-syntax-highlighter-theme", plugin_dir_url( __FILE__ )."/styles/$selected_style_sheet.css");
+// Load the base style
 wp_enqueue_style("wp-code-prettify-syntax-highlighter-theme-base", plugin_dir_url( __FILE__ )."/styles/base.css");
 
-/*
- * Custom styles
- */
-function wp_code_prettify_syntax_highlighter_add_styles()
-{
+// Add the custom styles to the page header
+function wp_code_prettify_syntax_highlighter_add_styles() {
   ?>
   <style type="text/css">
     <?php echo get_option('wp_code_prettify_syntax_highlighter_custom_styles') ?>
