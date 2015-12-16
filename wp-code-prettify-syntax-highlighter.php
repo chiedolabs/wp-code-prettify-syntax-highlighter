@@ -15,7 +15,7 @@ include "moonwalk.php";
  */
 add_action( 'wp_enqueue_scripts', 'wp_code_prettify_syntax_highlighter_scripts' );
 function wp_code_prettify_syntax_highlighter_scripts() {
-  wp_enqueue_script('wp-code-prettify-syntax-highlighter', 'https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js', null, "0.1", false);
+  wp_enqueue_script('wp-code-prettify-syntax-highlighter', plugin_dir_url( __FILE__ )."/js/run_prettify.js", null, "0.1", false);
 }
 
 /*
@@ -27,7 +27,7 @@ function wp_code_prettify_syntax_highlighter_clean_the_body($content) {
     '#(<pre.*?prettyprint.*?>)(.*?)(</pre>)#imsu',
     create_function(
       '$i',
-      'return $i[1].htmlentities(moonWalk($i[2])).$i[3];'
+      'return $i[1].htmlentities(wp_code_prettify_syntax_highlighter_moonWalk($i[2])).$i[3];'
     ),
     $content
   );

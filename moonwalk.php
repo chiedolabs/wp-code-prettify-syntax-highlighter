@@ -1,5 +1,5 @@
 <?php  
-function moonWalk($x, $leadingSpaces = 0) {
+function wp_code_prettify_syntax_highlighter_moonWalk($x, $leadingSpaces = 0) {
   //Make sure we don't start or endwith new lines
   $x = trim($x, "\r");
   $x = trim($x, "\n");
