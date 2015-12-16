@@ -51,19 +51,31 @@ function code_prettify_syntax_highlighter_display_settings() {
       $options_dom = $options_dom . "<option value='$option'>$option</option>";
     }
   }
+
   ?>
   </pre>
   <div class="wrap">
     <form action="options.php" method="post" name="options">
-      <h2>Choose a theme</h2>
+      <h2>Code Prettify Syntax Highlighter Options</h2>
       <?php echo wp_nonce_field('update-options') ?>
-      <label>Themes</label>
+
+      <label>Choose a built-in theme</label>
       <select name="code_prettify_syntax_highlighter_theme">
         <?php echo $options_dom ?>
       </select>
+      <br />
+      <br />
+      <div>
+        <label>Add custom css:&nbsp;</label>
+        <br/>
+        <br/>
+        <textarea style="width: 50%; min-width: 200px; height: 150px;" name="code_prettify_syntax_highlighter_custom_styles"><?php echo get_option('code_prettify_syntax_highlighter_custom_styles') ?></textarea>
+      </div>
+      <br/>
+      <br/>
       <input type="submit" name="Submit" value="Update" />
       <input type="hidden" name="action" value="update" />
-      <input type="hidden" name="page_options" value="code_prettify_syntax_highlighter_theme" />
+      <input type="hidden" name="page_options" value="code_prettify_syntax_highlighter_theme, code_prettify_syntax_highlighter_custom_styles" />
     </form>
   </div>
   <pre>
@@ -89,6 +101,19 @@ switch(get_option('code_prettify_syntax_highlighter_theme')) {
   default:
     wp_enqueue_style("code-prettify-syntax-highlighter-theme", plugin_dir_url( __FILE__ )."/styles/default.css");
 }
-  wp_enqueue_style("code-prettify-syntax-highlighter-theme-base", plugin_dir_url( __FILE__ )."/styles/base.css");
+wp_enqueue_style("code-prettify-syntax-highlighter-theme-base", plugin_dir_url( __FILE__ )."/styles/base.css");
+
+/*
+ * Custom styles
+ */
+function code_prettify_syntax_highlighter_add_styles()
+{
+  ?>
+  <style type="text/css">
+    <?php echo get_option('code_prettify_syntax_highlighter_custom_styles') ?>
+  </style>
+  <?php
+}
+add_action('wp_head', 'code_prettify_syntax_highlighter_add_styles');
 
 ?>
