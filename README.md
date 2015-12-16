@@ -1,4 +1,4 @@
-#WP Code Prettify Ultra
+#WP Code Prettify Syntax Highlighter
 
 Works with all google code prettify languages.
 

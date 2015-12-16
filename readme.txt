@@ -1,5 +1,5 @@
 
-=== Code Pretiffy Syntax Highlighter ===
+=== WP Code Pretiffy Syntax Highlighter ===
 Contributors: chiedolabs, chiedojohn
 Tags: code prettify, syntax, syntax highlighter
 Requires at least: 4.3.1
