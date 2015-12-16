@@ -12,9 +12,9 @@ The best Google Code Prettify WordPress plugin.
 
 == Description ==
 
-The best Google Code Prettify WordPress plugin. Works with all google code prettify languages. Better than existing WordPress options because you can indent the code in your pre tags and its the fastest to load.
+The best Google Code Prettify WordPress plugin. Works with all google code prettify languages. Better than existing WordPress options because you can indent the code in your pre tags.
 
-This plugins:
+This plugin:
 `
 <div>
   <pre class="prettifier lang-*">
