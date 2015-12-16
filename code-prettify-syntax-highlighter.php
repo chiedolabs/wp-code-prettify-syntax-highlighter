@@ -63,6 +63,9 @@ function code_prettify_syntax_highlighter_display_settings() {
       <select name="code_prettify_syntax_highlighter_theme">
         <?php echo $options_dom ?>
       </select>
+      <br/>
+      <br/>
+      You can also use a custom theme by setting the built-in theme to "Default" and adding one of the themes from <a href="http://jmblog.github.io/color-themes-for-google-code-prettify/" target="_blank">here</a> in the textarea below.
       <br />
       <br />
       <div>
