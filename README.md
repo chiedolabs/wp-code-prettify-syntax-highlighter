@@ -27,3 +27,14 @@ In other plugins, you must do this:
 </pre>
 </div>
 ```
+
+#### Deployment
+
+Copy everything from this directory to the SVN directory
+
+Then:
+
+```
+svn cp trunk tags/TAGNO
+svn ci -m "tagging version TAGNO"
+```
